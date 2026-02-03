@@ -1,0 +1,40 @@
+name: PR Build
+
+on:
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+      checks: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: '0'
+
+      - name: Set up JDK 21 Temurin
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+
+###### BEGIN - Build the code #####################################################################
+      - name: Run gradle clean
+        run: ./gradlew clean
+
+      - name: Build the code
+        id: build
+        run: ./gradlew --parallel assembleDebug
+###### END - Build the code #######################################################################

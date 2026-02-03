@@ -34,6 +34,17 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    //noinspection WrongGradleMethod
+    kotlin {
+        compilerOptions {
+            val ideaActiveProp = System.getProperty("idea.active")
+            if (ideaActiveProp == "true") {
+                // If running in Android Studio disable variables optimization
+                freeCompilerArgs.add("-Xdebug")
+            }
+        }
+    }
+
     buildFeatures {
         compose = true
         buildConfig = true

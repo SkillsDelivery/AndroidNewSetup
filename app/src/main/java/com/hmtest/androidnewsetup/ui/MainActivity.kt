@@ -22,6 +22,10 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    companion object {
+        private const val TAG = "@MainActivity"
+    }
+
     @Inject
     lateinit var countryCodeDao: CountryCodeDao
 
@@ -33,11 +37,11 @@ class MainActivity : ComponentActivity() {
 
         lifecycleScope.launch {
             val countryCodeByAlpha2 = countryCodeDao.getCountryCodeByAlpha2("SE")
-            Log.d("MainActivity", "Country codes: $countryCodeByAlpha2")
+            Log.d(TAG, "Country codes: $countryCodeByAlpha2")
             val countryCodeByAlpha3 = countryCodeDao.getCountryCodeByAlpha3("ISL")
-            Log.d("MainActivity", "Country codes: $countryCodeByAlpha3")
+            Log.d(TAG, "Country codes: $countryCodeByAlpha3")
             val countryCodeByNumeric3 = countryCodeDao.getCountryCodeByNumeric3("642")
-            Log.d("MainActivity", "Country codes: $countryCodeByNumeric3")
+            Log.d(TAG, "Country codes: $countryCodeByNumeric3")
         }
 
         setContent {

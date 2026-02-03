@@ -3,7 +3,6 @@ package com.hmtest.androidnewsetup.di
 import android.content.Context
 import androidx.room.Room
 import com.hmtest.androidnewsetup.data.source.AppDatabase
-import com.hmtest.androidnewsetup.data.utils.CountryCodeDbCallback
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +27,5 @@ object DatabaseModule {
             AppDatabase::class.java,
             AppDatabase.DB_NAME
         )
-        .addCallback(CountryCodeDbCallback())
         .build()
 }

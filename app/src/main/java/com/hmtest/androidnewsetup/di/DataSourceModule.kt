@@ -17,5 +17,10 @@ abstract class DataSourceModule {
             database: AppDatabase
         ) = database.countryCodeDao()
 
+        @Provides
+        @Singleton
+        fun providesProfileDao(
+            database: AppDatabase
+        ) = database.profileDao()
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
 import com.hmtest.androidnewsetup.data.source.CountryCodeDao
+import com.hmtest.androidnewsetup.data.source.ProfileDao
 import com.hmtest.androidnewsetup.ui.theme.AndroidNewSetupTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -29,6 +30,9 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var countryCodeDao: CountryCodeDao
 
+    @Inject
+    lateinit var profileDao: ProfileDao
+
     @SuppressLint("LogConditional")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +46,9 @@ class MainActivity : ComponentActivity() {
             Log.d(TAG, "Country codes: $countryCodeByAlpha3")
             val countryCodeByNumeric3 = countryCodeDao.getCountryCodeByNumeric3("642")
             Log.d(TAG, "Country codes: $countryCodeByNumeric3")
+
+            val profile = profileDao.getProfile("AS456")
+            Log.d("MainActivity", "Profile: $profile")
         }
 
         setContent {

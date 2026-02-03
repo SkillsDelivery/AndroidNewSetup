@@ -1,0 +1,38 @@
+[versions]
+compile-sdk-version = "36"
+min-sdk-version = "29"
+target-sdk-version = "36"
+
+agp-version = "9.0.0"
+ksp-plugin-version = "2.3.4"
+kotlin-version = "2.3.0"
+androidx-core-version = "1.17.0"
+androidx-activity-compose-version = "1.12.3"
+androidx-compose-bom-version = "2026.01.01"
+androidx-lifecycle-version = "2.10.0"
+junit = "4.13.2"
+androidx-junit-version = "1.3.0"
+androidx-test-espresso-version = "3.7.0"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp-version" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-plugin-version" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-version" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose-version" }
+
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom-version" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-version" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit-version" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-test-espresso-version" }

@@ -42,3 +42,14 @@ jobs:
         id: build
         run: ./gradlew --parallel assembleDebug
 ###### END - Build the code #######################################################################
+
+
+###### BEGIN - Archive binaries ###################################################################
+      - name: Archive build binaries
+        if: ( !cancelled() && (steps.build.outcome == 'success') )
+        uses: actions/upload-artifact@v6
+        with:
+          name: APKs
+          path: app/build/outputs/apk/debug/*.apk
+          retention-days: 15
+###### END - Archive binaries #####################################################################
